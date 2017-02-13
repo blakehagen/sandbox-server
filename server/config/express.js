@@ -20,6 +20,5 @@ module.exports = () => {
     saveUninitialized: true
   }));
 
-  console.log('hello from express config!');
   return app;
 };
