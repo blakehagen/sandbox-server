@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
   }, {
     tableName: 'users',
-    timestamps: false,
+    timestamps: true,
     classMethods: {
       init: function (_models) {
         models = _models;

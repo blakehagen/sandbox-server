@@ -4,8 +4,9 @@ const fs        = require('fs');
 const path      = require('path');
 const Sequelize = require('sequelize');
 const pg        = require('pg');
+const dbConfig  = require('../config/dbConfig');
 
-let sequelize = new Sequelize('postgres://stqoihjo:sQ4MLfE_64KT20_aT7fzP4z5Ogxkgl1P@babar.elephantsql.com:5432/stqoihjo', {
+let sequelize = new Sequelize(dbConfig.development.url, {
   logging: false
 });
 
