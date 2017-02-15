@@ -14,7 +14,13 @@ module.exports = {
   },
 
   getAllUsers (req, res) {
-    models.User.findAll()
+    models.User.findAll({
+      include: {
+        model: models.Budget,
+        attributes: ['name']
+      },
+      attributes: ['id', 'firstName', 'lastName', 'email']
+    })
       .then(users => {
         res.status(200).json(users);
       })

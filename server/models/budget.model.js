@@ -3,22 +3,20 @@
 const BPromise = require('bluebird');
 
 module.exports = (sequelize, DataTypes) => {
-  let User;
+  let Budget;
   let models;
 
-  User = sequelize.define('User', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
+  Budget = sequelize.define('Budget', {
+    name: DataTypes.STRING
   }, {
-    tableName: 'users',
+    tableName: 'budgets',
     timestamps: true,
     classMethods: {
       init: function (_models) {
         models = _models;
-        User.hasMany(models.Budget)
+        Budget.belongsTo(models.User)
       }
     },
   });
-  return User;
+  return Budget;
 };

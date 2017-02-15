@@ -4,6 +4,7 @@ const app     = express();
 
 // ROUTES //
 require('./server/users/user.routes')(app);
+require('./server/budgets/budget.routes')(app);
 
 
 // TEST ROUTE //
