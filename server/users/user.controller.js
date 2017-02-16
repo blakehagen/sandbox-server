@@ -27,6 +27,23 @@ module.exports = {
       .catch(err => {
         res.status(400).json({error: err});
       });
+  },
+
+  getOneUser (req, res) {
+    models.User.findById(req.params.id, {
+      include: {
+        model: models.Budget,
+        include: [models.Category],
+        attributes: ['name']
+      },
+      attributes: ['id', 'firstName', 'lastName', 'email']
+    })
+      .then(user => {
+        res.status(200).json(user);
+      })
+      .catch(err => {
+        res.status(400).json({error: err});
+      });
   }
 
 };

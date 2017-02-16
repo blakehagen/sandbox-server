@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       init: function (_models) {
         models = _models;
-        Budget.belongsTo(models.User)
+        Budget.belongsTo(models.User);
+        Budget.hasMany(models.Category);
       }
     },
   });

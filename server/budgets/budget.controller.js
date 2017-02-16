@@ -15,9 +15,18 @@ module.exports = {
   },
 
   getAllBudgets (req, res) {
-    models.User.findAll()
-      .then(users => {
-        res.status(200).json(users);
+
+    console.log('hello');
+
+    models.Budget.findAll({
+      include: [{
+        model: models.Category
+      }],
+      attributes: ['name', 'id']
+
+    })
+      .then(budgets => {
+        res.status(200).json(budgets);
       })
       .catch(err => {
         res.status(400).json({error: err});
