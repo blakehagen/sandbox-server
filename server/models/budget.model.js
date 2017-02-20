@@ -1,7 +1,5 @@
 'use strict';
 
-const BPromise = require('bluebird');
-
 module.exports = (sequelize, DataTypes) => {
   let Budget;
   let models;
